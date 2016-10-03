@@ -10,7 +10,7 @@ public interface CategoryDAO {
 	public boolean save(Category category);
 	public boolean update(Category category);
 	public boolean delete(String id);
-	public void saveOrUpdate(Category category);
+	public boolean saveOrUpdate(Category category);
 	
 	//based on the id, it will return category domain
 	public Category get(String id);

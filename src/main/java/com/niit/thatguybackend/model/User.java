@@ -15,10 +15,10 @@ public class User {
 	private String id;
 	private String name;
 	private String password;
-	private String mailid;
+	private String mail_id;
 	private String mobile;
 	private String role;
-	@OneToMany(mappedBy="user:,fetch=FetchType.EAGER")
+	
 	@Id
 	@Column(name="ID")
 
@@ -40,11 +40,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public String getMailid() {
-		return mailid;
+	
+	public String getMail_id() {
+		return mail_id;
 	}
-	public void setMailid(String mailid) {
-		this.mailid = mailid;
+	public void setMail_id(String mail_id) {
+		this.mail_id = mail_id;
 	}
 	public String getMobile() {
 		return mobile;

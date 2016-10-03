@@ -12,36 +12,38 @@ import org.springframework.stereotype.Component;
 @Table(name="Cart")
 @Component
 public class Cart {
-	@OneToMany(mappedBy="cart:,fetch=FetchType.EAGER")
+	
 	@Id
 	@Column(name="ID")
 	private String id;
-	private String mailId;
+	private String mail_id;
+	private String cart_item;
+	private String total_price;
+
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
 	}
-	public String getMailId() {
-		return mailId;
+	public String getMail_id() {
+		return mail_id;
 	}
-	public void setMailId(String mailId) {
-		this.mailId = mailId;
+	public void setMail_id(String mail_id) {
+		this.mail_id = mail_id;
 	}
-	public String getCartItem() {
-		return cartItem;
+	public String getCart_item() {
+		return cart_item;
 	}
-	public void setCart_item(String cartItem) {
-		this.cartItem = cartItem;
+	public void setCart_item(String cart_item) {
+		this.cart_item = cart_item;
 	}
-	public String getTotalPrice() {
-		return totalPrice;
+	public String getTotal_price() {
+		return total_price;
 	}
-	public void setTotalprice(String totalPrice) {
-		this.totalPrice = totalPrice;
+	public void setTotal_price(String total_price) {
+		this.total_price = total_price;
 	}
-	private String cartItem;
-	private String totalPrice;
+	
 
 }

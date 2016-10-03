@@ -14,10 +14,16 @@ import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.thatguy.dao.CartDAO;
+import com.niit.thatguy.dao.CartDAOImpl;
 import com.niit.thatguy.dao.CategoryDAO;
 import com.niit.thatguy.dao.CategoryDAOImpl;
-
+import com.niit.thatguybackend.model.Cart;
+import com.niit.thatguybackend.model.CartItem;
 import com.niit.thatguybackend.model.Category;
+import com.niit.thatguybackend.model.Product;
+import com.niit.thatguybackend.model.Supplier;
+import com.niit.thatguybackend.model.User;
 
 @Configuration
 @ComponentScan("com.niit.thatguy")
@@ -48,12 +54,12 @@ public class ApplicationContextConfig {
 		LocalSessionFactoryBuilder sessionBuilder=new LocalSessionFactoryBuilder(dataSource);
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClasses(Category.class);
-		//sessionBuilder.addAnnotatedClasses(Supplier.class);
-		//sessionBuilder.addAnnotatedClasses(User.class);
-		//sessionBuilder.addAnnotatedClasses(Product.class);
-		//sessionBuilder.addAnnotatedClasses(Cart.class);
-		//sessionBuilder.addAnnotatedClasses(CartItem.class);
-		//sessionBuilder.addAnnotatedClasses(Account.class);
+		sessionBuilder.addAnnotatedClasses(Supplier.class);
+		sessionBuilder.addAnnotatedClasses(User.class);
+		sessionBuilder.addAnnotatedClasses(Product.class);
+		sessionBuilder.addAnnotatedClasses(Cart.class);
+		sessionBuilder.addAnnotatedClasses(CartItem.class);
+		
 		return sessionBuilder.buildSessionFactory();
 		}
 	@Autowired
@@ -67,9 +73,9 @@ public class ApplicationContextConfig {
 	public CategoryDAO getCategoryDao(SessionFactory sessionFactory){
 		return new CategoryDAOImpl(sessionFactory);
 	}
-	//@Autowired
-	//@Bean(name="cartDao")
-	//public CartDAO getCartDao(SessionFactory sessionFactory){
-		//return new CartDAOImpl(sessionFactory);
-	//}
+	@Autowired
+	@Bean(name="cartDao")
+	public CartDAO getCartDao(SessionFactory sessionFactory){
+		return new CartDAOImpl(sessionFactory);
+	}
 }

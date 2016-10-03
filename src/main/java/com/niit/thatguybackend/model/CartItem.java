@@ -1,6 +1,8 @@
 package com.niit.thatguybackend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -15,6 +17,9 @@ public class CartItem {
 	private String brand;
 	private String quantity;
 
+	
+	@Id
+	@Column(name="ID")
 	public String getId() {
 		return id;
 	}

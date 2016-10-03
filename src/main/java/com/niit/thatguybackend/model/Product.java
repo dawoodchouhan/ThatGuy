@@ -1,6 +1,10 @@
 package com.niit.thatguybackend.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.springframework.stereotype.Component;
@@ -9,11 +13,35 @@ import org.springframework.stereotype.Component;
 @Table(name="Product")
 @Component
 public class Product {
+	@Id
 	private String id;
 	private String name;
 	private String price;
-	private String categoryId;
-	private String supplierId;
+	private String category_id;
+	private String supplier_id;
+	
+	@ManyToOne
+	@JoinColumn(name="category_id",updatable=false,insertable=false,nullable=false)
+	private Category category;
+	
+	@ManyToOne
+	@JoinColumn(name="supplier_id",updatable=false,insertable=false,nullable=false)
+	private Supplier supplier;
+	
+
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	@Column(name="ID")
 	public String getId() {
 		return id;
 	}
@@ -32,17 +60,19 @@ public class Product {
 	public void setPrice(String price) {
 		this.price = price;
 	}
-	public String getCategoryId() {
-		return categoryId;
+	public String getCategory_id() {
+		return category_id;
 	}
-	public void setCategoryId(String categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory_id(String category_id) {
+		this.category_id = category_id;
 	}
-	public String getSupplierId() {
-		return supplierId;
+	public String getSupplier_id() {
+		return supplier_id;
 	}
-	public void setSupplierId(String supplierId) {
-		this.supplierId = supplierId;
+	public void setSupplier_id(String supplier_id) {
+		this.supplier_id = supplier_id;
 	}
+
+	
 
 }
