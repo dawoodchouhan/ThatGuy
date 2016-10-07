@@ -1,25 +1,23 @@
 package com.niit.thatguybackend.test;
 
-import static org.junit.Assert.*;
-
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import com.niit.thatguy.dao.CategoryDAO;
-import com.niit.thatguybackend.model.Category;
+import com.niit.thatguy.dao.CartDAO;
+import com.niit.thatguybackend.model.Cart;
 
 import junit.framework.Assert;
 
-public class CategoryTestCase {
+public class CartTestCase {
 
 	
 	@Autowired
-	private static CategoryDAO categoryDAO;
+	private static CartDAO cartDAO;
 	
 	@Autowired
-	private static Category category;
+	private static Cart cart;
 	
 	@Autowired
 	private static AnnotationConfigApplicationContext context;
@@ -31,18 +29,19 @@ public class CategoryTestCase {
 		context.scan("com.niit.thatguybackend");
 		context.refresh();
 		
-		categoryDAO=(CategoryDAO) context.getBean("categoryDAO");
+		cartDAO=(CartDAO) context.getBean("cartDAO");
 		
-		category=(Category) context.getBean("category");
+		cart=(Cart) context.getBean("cart");
 	}
 	@Test
-	public void createCategory()
+	public void createCart()
 	{
-		category.setId("CAP01");
-		category.setName("Accessories");
-		category.setDescription("This is cap");
+		cart.setTotal_price("1500");
+		cart.setId("B12");
+		cart.setMail_id("daw@123");
+		cart.setCart_item("item 001");
 		
 		
-		Assert.assertEquals("category create test case", true,categoryDAO.saveOrUpdate(category));
+		Assert.assertEquals("cart create test case", true,cartDAO.saveOrUpdate(cart));
 	}
 }

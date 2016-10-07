@@ -35,17 +35,17 @@ public class CategoryDAOImpl implements CategoryDAO{
 		return true;
 	}
 
-	public boolean update(Category category){
-		try
-		{
-			sessionFactory.getCurrentSession().update(category);
-		}catch(Exception e)
-		{
-			e.printStackTrace();
-			return false;
-		}
-		return true;
-	}
+	//public boolean update(Category category){
+	//	try
+		//{
+	//		sessionFactory.getCurrentSession().update(category);
+		//}catch(Exception e)
+	//	{
+	//		e.printStackTrace();
+	//		return false;
+	//	}
+	//	return true;
+	//}
 	
 	public boolean delete(String id){
 		try

@@ -16,9 +16,9 @@ public static void main(String[] args){
 	CategoryDAO categoryDAO=(CategoryDAO) context.getBean("categoryDAO");
 	Category category=(Category) context.getBean("category");
 	
-	category.setId("CBCap");
-	category.setName("Cap");
-	category.setDescription("This is Vans Cap");
+	category.setId("XYZCap123");
+	category.setName("shoe123");
+	category.setDescription("This is shoe");
 	
 	categoryDAO.saveOrUpdate(category);
 	System.out.println("objects are created successfully");

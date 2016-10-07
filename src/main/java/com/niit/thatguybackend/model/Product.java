@@ -1,34 +1,32 @@
 package com.niit.thatguybackend.model;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
 import org.springframework.stereotype.Component;
 
 @Entity
 @Table(name="Product")
 @Component
 public class Product {
+
 	@Id
 	private String id;
 	private String name;
-	private String price;
+	private int price;
+	public String description;
 	private String category_id;
 	private String supplier_id;
 	
 	@ManyToOne
-	@JoinColumn(name="category_id",updatable=false,insertable=false,nullable=false)
+	@JoinColumn(name="category_id",referencedColumnName="id",updatable=false,insertable=false,nullable=false)
 	private Category category;
-	
 	@ManyToOne
-	@JoinColumn(name="supplier_id",updatable=false,insertable=false,nullable=false)
+	@JoinColumn(name="supplier_id",referencedColumnName="id",updatable=false,insertable=false,nullable=false)
 	private Supplier supplier;
 	
-
 	public Category getCategory() {
 		return category;
 	}
@@ -41,7 +39,6 @@ public class Product {
 	public void setSupplier(Supplier supplier) {
 		this.supplier = supplier;
 	}
-	@Column(name="ID")
 	public String getId() {
 		return id;
 	}
@@ -54,11 +51,19 @@ public class Product {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPrice() {
+	
+	public int getPrice() {
 		return price;
 	}
-	public void setPrice(String price) {
+	public void setPrice(int price) {
 		this.price = price;
+	}
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	public String getCategory_id() {
 		return category_id;
@@ -72,7 +77,5 @@ public class Product {
 	public void setSupplier_id(String supplier_id) {
 		this.supplier_id = supplier_id;
 	}
-
-	
 
 }
