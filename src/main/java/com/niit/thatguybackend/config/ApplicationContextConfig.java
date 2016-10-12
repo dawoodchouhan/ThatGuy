@@ -6,7 +6,6 @@ import javax.sql.DataSource;
 
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
-//import org.springframework.orm.hibernate4.annotation.AnnotationSessionFactoryBean;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

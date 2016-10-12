@@ -8,8 +8,8 @@ public interface CategoryDAO {
 //what are the operations we are going to do and declare it
 	//CRUD operations
 	public boolean save(Category category);
-	//public boolean update(Category category);
-	public boolean delete(String id);
+	public boolean update(Category category);
+	public void delete(String id);
 	public boolean saveOrUpdate(Category category);
 	
 	//based on the id, it will return category domain
@@ -17,6 +17,7 @@ public interface CategoryDAO {
 	
 	//To get all the categories
 	public List<Category>list();
+	public Category getByName(String name);
 	
 	
 }

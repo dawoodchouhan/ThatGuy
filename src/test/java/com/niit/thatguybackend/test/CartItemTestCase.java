@@ -39,9 +39,8 @@ public class CartItemTestCase {
 		cartItem.setCategory("Watch");
 		cartItem.setPrice("5900");
 		cartItem.setQuantity("20");
-	
 		
-		Assert.assertEquals("cartItem create test case", true,cartItemDAO.saveOrUpdate(cartItem));
+		Assert.assertEquals("cartItem create test case",true, cartItemDAO.saveOrUpdate(cartItem));
 	}
 }
 

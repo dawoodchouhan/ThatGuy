@@ -7,7 +7,7 @@ import com.niit.thatguybackend.model.Cart;
 public interface CartDAO {
 	public boolean save(Cart cart);
 	public boolean update(Cart cart);
-	public boolean delete(String id);
+	public void delete(String id);
 	public boolean saveOrUpdate(Cart cart);
 	
 	//based on the id, it will return category domain
